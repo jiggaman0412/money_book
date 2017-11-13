@@ -1,5 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import PropTypes from 'prop-types'
 import './index.css'
 
 const MoneyBook = () => {
@@ -17,14 +18,30 @@ const MoneyBook = () => {
           <tr><th>日付</th><th>項目</th><th>入金</th><th>出金</th></tr>
         </thead>
         <tbody>
-          <tr><td>{books[0].date}</td><td>{books[0].item}</td><td>{books[0].amount}</td><td>500</td></tr>
-          <tr><td>{books[1].date}</td><td>{books[1].item}</td><td>{books[1].amount}</td><td>200</td></tr>
-          <tr><td>{books[2].date}</td><td>{books[2].item}</td><td>{books[2].amount}</td><td>10000</td></tr>
-          <tr><td>{books[3].date}</td><td>{books[3].item}</td><td>{books[3].amount}</td><td>100</td></tr>
+          <MoneyBookItem book={books[0]} />
+          <MoneyBookItem book={books[1]} />
+          <MoneyBookItem book={books[2]} />
+          <MoneyBookItem book={books[3]} />
         </tbody>
       </table>
     </div>
   )
+}
+
+const MoneyBookItem = (props) => {
+  const {date, item, amount} = props.book
+  return (
+    <tr>
+      <td>{date}</td>
+      <td>{item}</td>
+      <td>{amount}</td>
+      <td></td>
+    </tr>
+  )
+}
+
+MoneyBookItem.propTypes = {
+  book: PropTypes.object.isRequired
 }
 
 ReactDOM.render(

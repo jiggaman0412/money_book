@@ -1,6 +1,7 @@
-h1{
-  color: white;
-  background-color: blue;
-  border: solid 1px black;
-  text-align: center;
+.book {
+  border-collapse: collapse;
+}
+.book th, .book td {
+  border: solid 1px;
+  padding: 1px 15px;
 }
